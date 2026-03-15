@@ -29,8 +29,8 @@ export default function UploadBaseDialog() {
 
       {/* DaisyUI Modal */}
       <dialog ref={dialogRef} className="modal coc-overlay">
-        <div className="modal-box coc-panel bg-[#E6E1D6] p-8 max-w-lg w-full">
-          <h3 className="font-luckiest text-2xl mb-6 text-[#4A3B2A] text-center uppercase drop-shadow-sm">Upload New Base</h3>
+        <div className="modal-box coc-panel bg-[#E6E1D6] p-6 sm:p-8 max-w-[95vw] sm:max-w-lg w-full max-h-[90vh] overflow-y-auto">
+          <h3 className="font-luckiest text-xl sm:text-2xl mb-6 text-[#4A3B2A] text-center uppercase drop-shadow-sm">Upload New Base</h3>
 
           <form ref={formRef} action={formAction} className="space-y-4">
             {/* Base Link */}
@@ -57,7 +57,7 @@ export default function UploadBaseDialog() {
                 name="thLevel"
                 required
                 min="1"
-                max="16"
+                max="17"
                 placeholder="15"
                 className="coc-input w-full font-luckiest text-lg"
               />
@@ -91,22 +91,22 @@ export default function UploadBaseDialog() {
 
             {/* Error handling */}
             {state?.error && (
-              <p className="text-sm text-red-600 bg-red-100 border-2 border-red-400 p-2 rounded font-bold">
+              <p className="text-sm text-red-600 bg-red-100 border-2 border-red-400 p-2 rounded font-bold text-center">
                 {state.error}
               </p>
             )}
 
             {/* Actions */}
-            <div className="modal-action flex justify-between mt-8">
+            <div className="modal-action flex flex-col-reverse sm:flex-row justify-between gap-3 mt-8">
               <button
                 type="button"
-                className="coc-btn coc-btn-grey text-sm py-1 px-4"
+                className="coc-btn coc-btn-grey text-sm py-2 px-4 w-full sm:w-auto"
                 onClick={() => dialogRef.current?.close()}
               >
                 Cancel
               </button>
 
-              <button type="submit" className="coc-btn coc-btn-green flex-1 ml-4 text-lg" disabled={isPending}>
+              <button type="submit" className="coc-btn coc-btn-green flex-1 text-lg py-2 w-full sm:w-auto" disabled={isPending}>
                 {isPending && (
                   <span className="loading loading-spinner loading-xs mr-2"></span>
                 )}

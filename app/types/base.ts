@@ -1,7 +1,7 @@
 import z from 'zod'
 
 export const BaseSchema = z.object({
-    id: z.uuid(),
+    id: z.string(),
     link: z.url(),
     thLevel: z.number().int().min(1).max(18),
     createdAt: z.date(),
